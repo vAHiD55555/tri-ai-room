@@ -23,7 +23,7 @@ pre { white-space: pre-wrap }
 <script>
 async function send() {
   out.textContent = "در حال فکر کردن…";
-  const res = await fetch("🔴WORKER_URL🔴", {
+  const res = await fetch("https://tri-ai-room.vahid2535.workers.dev/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: msg.value })
