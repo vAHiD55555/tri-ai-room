@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>اتاق سه‌نفره</title>
+<style>
+body { font-family: sans-serif; background:#111; color:#eee; padding:10px }
+textarea { width:100%; height:80px }
+button { width:100%; padding:10px; margin-top:5px }
+pre { white-space: pre-wrap }
+</style>
+</head>
+<body>
+
+<h3>🟢 اتاق وحید · GPT · Gemini</h3>
+
+<textarea id="msg" placeholder="بنویس…"></textarea>
+<button onclick="send()">ارسال</button>
+
+<pre id="out"></pre>
+
+<script>
+async function send() {
+  out.textContent = "در حال فکر کردن…";
+  const res = await fetch("🔴WORKER_URL🔴", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: msg.value })
+  });
+  const data = await res.json();
+  out.textContent =
+    "🧠 GPT:\n" + data.gpt + "\n\n🌱 Gemini:\n" + data.gemini;
+}
+</script>
+
+</body>
+</html>
